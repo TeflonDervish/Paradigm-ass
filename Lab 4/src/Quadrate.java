@@ -25,7 +25,7 @@ public class Quadrate extends GeometricFigure{
 
     @Override
     public boolean isDoteInside(double x, double y) {
-        return false;
+        return x - this.x <= side && y - this.y <= side;
     }
 
 

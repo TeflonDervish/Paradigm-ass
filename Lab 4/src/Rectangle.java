@@ -25,6 +25,6 @@ public class Rectangle  extends GeometricFigure{
 
     @Override
     public boolean isDoteInside(double x, double y) {
-        return false;
+        return x - this.x <= SideA && y - this.y <= SideB;
     }
 }

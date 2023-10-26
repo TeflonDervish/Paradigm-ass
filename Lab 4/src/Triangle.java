@@ -34,7 +34,10 @@ public class Triangle extends GeometricFigure{
 
     @Override
     public boolean isDoteInside(double x, double y) {
-        return false;
+        double a = (x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y);
+        double b = (x2 - x) * (y3 - y2) - (x3 - x2) * (y2 - y);
+        double c = (x3 - x) * (y1 - y3) - (x1 - x3) * (y3 - y);
+        return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
     }
 
 }
