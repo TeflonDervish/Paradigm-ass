@@ -1,20 +1,32 @@
-public class Quadrate {
+public class Quadrate extends GeometricFigure{
 
-    private double DoteX, DoteY;
-    private double Side;
+    private double x, y;
+    private double side;
 
-    Quadrate(double DoteX, double DoteY, double Side){
-        this.DoteX = DoteX;
-        this.DoteY = DoteY;
-        this.Side = Side;
+    Quadrate(double x, double y, double side){
+        this.x = x;
+        this.y = y;
+        this.side = side;
     }
 
+    @Override
     public double calculatePerimeter() {
-        return this.Side * 4;
+        return this.side * 4;
+    }
+    @Override
+    public double calculateArea(){
+        return this.side * this.side;
+    }
+    @Override
+    public void Move(double x, double y){
+        this.x += x;
+        this.y += y;
     }
 
-    public double calculateArea(){
-        return this.Side * this.Side;
+    @Override
+    public boolean isDoteInside(double x, double y) {
+        return false;
     }
+
 
 }

@@ -13,7 +13,6 @@ public class FunctionCalculator implements Function<Double, Double> {
         return function.apply(x);
     }
 
-    // Добавим несколько функций
     public static FunctionCalculator f1() {
         return new FunctionCalculator(Math::cos);
     }

@@ -28,9 +28,6 @@ public class Department {
         this.parent = parent;
     }
 
-    // Геттеры и сеттеры (необходимо реализовать)
-
-    // Вывод информации о подразделении
     public void displayInfo() {
         System.out.println("Подразделение: " + name);
         if (parent != null) {

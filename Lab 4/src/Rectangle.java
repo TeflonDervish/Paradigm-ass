@@ -1,4 +1,4 @@
-public class Rectangle {
+public class Rectangle  extends GeometricFigure{
     private double x, y;
     private double SideA, SideB;
 
@@ -8,12 +8,23 @@ public class Rectangle {
         this.SideA = SideA;
         this.SideB = SideB;
     }
-
+    @Override
     public double calculatePerimeter() {
         return this.SideA * 2 + this.SideB * 2;
     }
-
+    @Override
     public double calculateArea(){
         return this.SideA * this.SideB;
+    }
+
+    @Override
+    public void Move(double x, double y){
+        this.x += x;
+        this.y += y;
+    }
+
+    @Override
+    public boolean isDoteInside(double x, double y) {
+        return false;
     }
 }

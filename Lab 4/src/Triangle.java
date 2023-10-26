@@ -1,4 +1,4 @@
-public class Triangle {
+public class Triangle extends GeometricFigure{
 
     private double x1, y1;
     private double x2, y2;
@@ -13,6 +13,7 @@ public class Triangle {
         this.y3 = y3;
     }
 
+    @Override
     public double calculatePerimeter(){
         double a = GeometricFigure.calculateDistance(x1, y1, x2, y2);
         double b = GeometricFigure.calculateDistance(x1, y1, x3, y3);
@@ -20,8 +21,20 @@ public class Triangle {
         return a + b + c;
     }
 
+    @Override
     public double calculateArea(){
         return 0.5 * Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+    }
+
+    @Override
+    public void Move(double x, double y) {
+        x1 += x; x2 += x; x3 += x;
+        y1 += y; y2 += y; y3 += y;
+    }
+
+    @Override
+    public boolean isDoteInside(double x, double y) {
+        return false;
     }
 
 }

@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Пример использования калькулятора для функции cos(x) на интервале [0, 2π] с шагом 0.5
         System.out.println("Выберите значение функции: 1) cos\n2) pow\n3) sqrt\n4) exp\n5) sin");
         Scanner in = new Scanner(System.in);
 
