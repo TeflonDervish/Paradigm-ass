@@ -15,9 +15,9 @@ public class Triangle extends GeometricFigure{
 
     @Override
     public double calculatePerimeter(){
-        double a = GeometricFigure.calculateDistance(x1, y1, x2, y2);
-        double b = GeometricFigure.calculateDistance(x1, y1, x3, y3);
-        double c = GeometricFigure.calculateDistance(x2, y2, x3, y3);
+        double a = this.calculateDistance(x1, y1, x2, y2);
+        double b = this.calculateDistance(x1, y1, x3, y3);
+        double c = this.calculateDistance(x2, y2, x3, y3);
         return a + b + c;
     }
 

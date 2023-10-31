@@ -16,10 +16,10 @@ public class Tetragon  extends GeometricFigure{
     }
     @Override
     public double calculatePerimeter(){
-        double a = GeometricFigure.calculateDistance(x1, y1, x2, y2);
-        double b = GeometricFigure.calculateDistance(x2, y2, x3, y3);
-        double c = GeometricFigure.calculateDistance(x3, y3, x4, y4);
-        double d = GeometricFigure.calculateDistance(x4, y4, x1, y1);
+        double a = this.calculateDistance(x1, y1, x2, y2);
+        double b = this.calculateDistance(x2, y2, x3, y3);
+        double c = this.calculateDistance(x3, y3, x4, y4);
+        double d = this.calculateDistance(x4, y4, x1, y1);
         return a + b + c + d;
     }
     @Override
