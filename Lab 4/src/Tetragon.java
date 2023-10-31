@@ -32,7 +32,7 @@ public class Tetragon  extends GeometricFigure{
     public void Move(double x, double y){
         this.x1 += x; this.x2 += x; this.x3 += x; this.x4 += x;
         this.y1 += y; this.y2 += y; this.y3 += y; this.y4 += y;
-    }
+        }
 
     @Override
     public boolean isDoteInside(double x, double y) {
@@ -41,8 +41,4 @@ public class Tetragon  extends GeometricFigure{
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y);
     }
 
-    @Override
-    public boolean IsBigger(GeometricFigure figure) {
-        return this.calculateArea() > figure.calculateArea();
-    }
 }

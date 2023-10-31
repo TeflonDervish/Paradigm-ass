@@ -39,10 +39,4 @@ public class Triangle extends GeometricFigure{
         double c = (x3 - x) * (y1 - y3) - (x1 - x3) * (y3 - y);
         return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
     }
-
-    @Override
-    public boolean IsBigger(GeometricFigure figure) {
-        return this.calculateArea() > figure.calculateArea();
-    }
-
 }

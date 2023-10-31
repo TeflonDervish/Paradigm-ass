@@ -47,10 +47,4 @@ public class Pentagon extends GeometricFigure{
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y) || t3.isDoteInside(x, y);
     }
 
-    @Override
-    public boolean IsBigger(GeometricFigure figure) {
-        return this.calculateArea() > figure.calculateArea();
-    }
-
-
 }
