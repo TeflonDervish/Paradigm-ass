@@ -14,3 +14,12 @@ public class Position {
     }
 
 }
+class StaffPosition extends Position {
+    private Department department;
+
+    public StaffPosition(String title) {
+        super(title);
+    }
+
+    // конструктор, геттеры и сеттеры
+}

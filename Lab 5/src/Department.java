@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Department {
+public class Department implements Comparator<Department> {
     private String name;
     private Department parent;
     private List<Department> subDepartments;
+
+    private List<Employee> employees;
 
     public Department(String name) {
         this.name = name;
@@ -15,9 +18,38 @@ public class Department {
         subDepartments.add(subDepartment);
         subDepartment.setParent(this);
     }
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
 
     public String getName() {
         return name;
+    }
+
+    public int getEmployeeCount() {
+        int count = employees.size();
+        for (Department subDepartment : subDepartments) {
+            count += subDepartment.getEmployeeCount();
+        }
+        return count;
+    }
+
+    public double getAverageSalary() {
+        if (employees.isEmpty()) return 0;
+
+        double totalSalary = 0;
+        for (Employee employee : employees) {
+            totalSalary += employee.getSalary();
+        }
+        return totalSalary / employees.size();
+    }
+
+    public double getTotalSalary() {
+        double totalSalary = 0;
+        for (Employee employee : employees) {
+            totalSalary += employee.getSalary();
+        }
+        return totalSalary;
     }
 
     public void setName(String name) {
@@ -37,5 +69,9 @@ public class Department {
         for (Department subDepartment : subDepartments) {
             System.out.println("- " + subDepartment.getName());
         }
+    }
+
+    public int compare(Department dep1, Department dep2) {
+        return Integer.compare(dep1.getEmployeeCount(), dep2.getEmployeeCount());
     }
 }

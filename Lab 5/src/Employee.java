@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Employee extends Person {
+public class Employee extends Person implements Comparable<Employee>{
     private Department department;
     private Position position;
     private double salary;
@@ -45,4 +45,8 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    @Override
+    public int compareTo(Employee o) {
+        return Double.compare(this.getSalary(), o.getSalary());
+    }
 }
