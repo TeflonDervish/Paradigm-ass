@@ -40,4 +40,9 @@ public class Triangle extends GeometricFigure{
         return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
     }
 
+    @Override
+    public boolean IsBigger(GeometricFigure figure) {
+        return this.calculateArea() > figure.calculateArea();
+    }
+
 }

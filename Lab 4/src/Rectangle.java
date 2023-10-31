@@ -27,4 +27,9 @@ public class Rectangle  extends GeometricFigure{
     public boolean isDoteInside(double x, double y) {
         return x - this.x <= SideA && y - this.y <= SideB;
     }
+
+    @Override
+    public boolean IsBigger(GeometricFigure figure) {
+        return this.calculateArea() > figure.calculateArea();
+    }
 }

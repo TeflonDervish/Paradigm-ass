@@ -28,5 +28,9 @@ public class Quadrate extends GeometricFigure{
         return x - this.x <= side && y - this.y <= side;
     }
 
+    @Override
+    public boolean IsBigger(GeometricFigure figure) {
+        return this.calculateArea() > figure.calculateArea();
+    }
 
 }

@@ -40,4 +40,9 @@ public class Tetragon  extends GeometricFigure{
         Triangle t2 = new Triangle(x1, x4, x3, y1, y4, y3);
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y);
     }
+
+    @Override
+    public boolean IsBigger(GeometricFigure figure) {
+        return this.calculateArea() > figure.calculateArea();
+    }
 }

@@ -3,7 +3,6 @@ public class Pentagon extends GeometricFigure{
     private double x2, y2;
     private double x3, y3;
     private double x4, y4;
-
     private double x5, y5;
 
     Pentagon(double x1, double x2, double x3, double x4, double x5, double y1, double y2, double y3, double y4, double y5){
@@ -46,6 +45,11 @@ public class Pentagon extends GeometricFigure{
         Triangle t2 = new Triangle(x1, x4, x3, y1, y4, y3);
         Triangle t3 = new Triangle(x1, x4, x5, y1, y4, y5);
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y) || t3.isDoteInside(x, y);
+    }
+
+    @Override
+    public boolean IsBigger(GeometricFigure figure) {
+        return this.calculateArea() > figure.calculateArea();
     }
 
 

@@ -8,5 +8,6 @@ enum DayOfWeek {
     SATURDAY,
     SUNDAY
 }
+
 public class DayOfWeekMain {
 }
