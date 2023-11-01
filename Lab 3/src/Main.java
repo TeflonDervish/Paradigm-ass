@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Выберите значение функции: 1) cos\n2) pow\n3) sqrt\n4) exp\n5) sin");
+        System.out.println("Выберите значение функции: \n1) cos\n2) pow\n3) sqrt\n4) exp\n5) sin");
         Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();

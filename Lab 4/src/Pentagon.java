@@ -40,6 +40,11 @@ public class Pentagon extends GeometricFigure{
     }
 
     @Override
+    public boolean isExist() {
+        return true;
+    }
+
+    @Override
     public boolean isDoteInside(double x, double y) {
         Triangle t1 = new Triangle(x1, x2, x3, y1, y2, y3);
         Triangle t2 = new Triangle(x1, x4, x3, y1, y4, y3);

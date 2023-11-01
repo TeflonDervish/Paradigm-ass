@@ -33,6 +33,14 @@ public class Triangle extends GeometricFigure{
     }
 
     @Override
+    public boolean isExist() {
+        double a = GeometricFigure.calculateDistance(x1, y1, x2, y2);
+        double b = GeometricFigure.calculateDistance(x1, y1, x2, y2);
+        double c = GeometricFigure.calculateDistance(x1, y1, x2, y2);
+        return (a + b > c) && (a + c > b) && (b + c > a);
+    }
+
+    @Override
     public boolean isDoteInside(double x, double y) {
         double a = (x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y);
         double b = (x2 - x) * (y3 - y2) - (x3 - x2) * (y2 - y);
