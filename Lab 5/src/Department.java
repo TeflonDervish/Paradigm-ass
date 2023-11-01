@@ -1,3 +1,5 @@
+import com.sun.source.tree.ArrayAccessTree;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -11,26 +13,29 @@ public class Department implements Comparator<Department> {
 
     public Department(String name) {
         this.name = name;
-        this.subDepartments = new ArrayList<>();
+        this.subDepartments = new ArrayList<Department>();
+        this.employees = new ArrayList<Employee>();
     }
 
     public void addSubDepartment(Department subDepartment) {
         subDepartments.add(subDepartment);
         subDepartment.setParent(this);
     }
-    public void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee, Position position, Double salary) {
         employees.add(employee);
+        employee.hire(this, position, salary);
     }
 
+    public void removeEmployee(Employee employee){
+        employees.remove(employee);
+        employee.fire();
+    }
     public String getName() {
         return name;
     }
 
     public int getEmployeeCount() {
         int count = employees.size();
-        for (Department subDepartment : subDepartments) {
-            count += subDepartment.getEmployeeCount();
-        }
         return count;
     }
 

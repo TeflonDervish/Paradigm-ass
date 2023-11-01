@@ -21,5 +21,12 @@ class StaffPosition extends Position {
         super(title);
     }
 
-    // конструктор, геттеры и сеттеры
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }
