@@ -46,4 +46,18 @@ public class Tetragon  extends GeometricFigure{
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y);
     }
 
+    public boolean isInclude(Tetragon t1){
+        return this.isDoteInside(t1.x1, t1.y1) &&
+                this.isDoteInside(t1.x2, t1.y2) &&
+                this.isDoteInside(t1.x3, t1.y3) &&
+                this.isDoteInside(t1.x4, t1.y4);
+    }
+    public boolean isIntersect(Tetragon t1) {
+        return (this.isDoteInside(t1.x1, t1.y1) ||
+                this.isDoteInside(t1.x2, t1.y2) ||
+                this.isDoteInside(t1.x3, t1.y3) ||
+                this.isDoteInside(t1.x4, t1.y4)) &&
+                !this.isInclude(t1);
+    }
+
 }

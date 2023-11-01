@@ -1,3 +1,5 @@
+import java.security.cert.TrustAnchor;
+
 public class Triangle extends GeometricFigure{
 
     private double x1, y1;
@@ -47,4 +49,20 @@ public class Triangle extends GeometricFigure{
         double c = (x3 - x) * (y1 - y3) - (x1 - x3) * (y3 - y);
         return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
     }
+
+    public boolean isInclude(Triangle t1){
+        return this.isDoteInside(t1.x1, t1.y1) &&
+                this.isDoteInside(t1.x2, t1.y2) &&
+                this.isDoteInside(t1.x3, t1.y3);
+    }
+    public boolean isIntersect(Triangle t1) {
+        return (this.isDoteInside(t1.x1, t1.y1) ||
+                this.isDoteInside(t1.x2, t1.y2) ||
+                this.isDoteInside(t1.x3, t1.y3)) &&
+                !this.isInclude(t1);
+    }
+
+
+
+
 }
