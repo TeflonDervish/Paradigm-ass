@@ -1,17 +1,33 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String [] args){
+        // Задание 1
+        ComplexNumber n1 = new ComplexNumber(0, 3);
+        ComplexNumber n2 = new ComplexNumber(8, 0);
+        ComplexNumber n3 = new ComplexNumber(0, 0);
+        ComplexNumber n4 = new ComplexNumber(8, 4);
+        ComplexNumber n5 = new ComplexNumber(3, -3);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println(n1);
+        System.out.println(n2);
+        System.out.println(n3);
+        System.out.println(n4);
+        System.out.println(n5);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println(n1.add(n2));
+
+        // Задание 2
+        String text = "кризис, криз, компьютер";
+        TextManipulation manipulation = new TextManipulation();
+
+        text = manipulation.countAndReplaceCrisis(text);
+        text = manipulation.removeComputerWords(text);
+
+        System.out.println(text);
+
+        // Задание 3
+        String text3 = "qwerty*qwerty#qwertyy";
+        text3 = StringManipulation.SortString(text3);
+        System.out.println("\nОтсортированная строка: " + text3);
+
     }
 }
