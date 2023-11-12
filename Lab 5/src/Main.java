@@ -1,17 +1,35 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Position p1 = new Position("просто должность");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Employee e1 = new Employee("1", "1", "1", new Date(1111, 11, 11), "1");
+        Employee e2 = new Employee("2", "1", "1", new Date(1111, 11, 11), "1");
+        Employee e3 = new Employee("3", "1", "1", new Date(1111, 11, 11), "1");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Department d1 = new Department("1");
+        Department d2 = new Department("2");
+        Department d3 = new Department("3");
+
+        d1.addSubDepartment(d2);
+        d1.addSubDepartment(d3);
+
+        d1.addEmployee(e1, p1, 14000.0);
+        d1.addEmployee(e2, p1, 20000.0);
+        d1.addEmployee(e3, p1, 30000.0);
+
+        System.out.println(d1.getAverageSalary());
+        System.out.println(d1.getTotalSalary());
+        System.out.println(d1.getEmployeeCount());
+        System.out.println();
+
+        d1.removeEmployee(e1);
+
+        System.out.println(d1.getAverageSalary());
+        System.out.println(d1.getTotalSalary());
+        System.out.println(d1.getEmployeeCount());
+        System.out.println();
+
     }
 }

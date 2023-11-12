@@ -35,10 +35,29 @@ public class Tetragon  extends GeometricFigure{
         }
 
     @Override
+    public boolean isExist() {
+        return true;
+    }
+
+    @Override
     public boolean isDoteInside(double x, double y) {
         Triangle t1 = new Triangle(x1, x2, x3, y1, y2, y3);
         Triangle t2 = new Triangle(x1, x4, x3, y1, y4, y3);
         return t1.isDoteInside(x, y) || t2.isDoteInside(x, y);
+    }
+
+    public boolean isInclude(Tetragon t1){
+        return this.isDoteInside(t1.x1, t1.y1) &&
+                this.isDoteInside(t1.x2, t1.y2) &&
+                this.isDoteInside(t1.x3, t1.y3) &&
+                this.isDoteInside(t1.x4, t1.y4);
+    }
+    public boolean isIntersect(Tetragon t1) {
+        return (this.isDoteInside(t1.x1, t1.y1) ||
+                this.isDoteInside(t1.x2, t1.y2) ||
+                this.isDoteInside(t1.x3, t1.y3) ||
+                this.isDoteInside(t1.x4, t1.y4)) &&
+                !this.isInclude(t1);
     }
 
 }
