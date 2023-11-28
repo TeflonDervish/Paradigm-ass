@@ -10,9 +10,8 @@ public class Main {
             String inputFileName = "Lab 7/files/input.txt";
             String outputFileName = "Lab 7/files/output.txt";
 
-            String shortestVowelSurname = findShortestVowelSurname(inputFileName);
+            List<String> shortestVowelSurname = findShortestVowelSurname(inputFileName);
             System.out.println("Shortest vowel surname: " + shortestVowelSurname);
-
             writeToFile(outputFileName, shortestVowelSurname);
         } catch (IOException | IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
@@ -20,42 +19,48 @@ public class Main {
     }
 
     // Метод для поиска самой короткой фамилии, начинающейся с гласной буквы
-    private static String findShortestVowelSurname(String fileName) throws IOException {
+    private static List<String> findShortestVowelSurname(String fileName) throws IOException {
         List<String> vowelSurnames = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
+            int min = 9999999;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(" ");
                 if (parts.length == 2) {
                     String surname = parts[0];
                     String name = parts[1];
                     if (isVowel(surname.charAt(0))) {
-                        vowelSurnames.add(surname);
+                        if (surname.length() < min){
+                            min = surname.length();
+                            vowelSurnames = new ArrayList<>();
+                            vowelSurnames.add(surname);
+                        }else if (surname.length() == min) {
+                            vowelSurnames.add(surname);
+                        }
                     }
                 } else {
                     throw new IllegalArgumentException("Invalid data format in the file.");
                 }
             }
         }
-
         if (vowelSurnames.isEmpty()) {
             throw new IllegalArgumentException("No surnames starting with a vowel found.");
         }
 
-        Collections.sort(vowelSurnames);
-        return vowelSurnames.get(0);
+        return vowelSurnames;
     }
 
-    // Метод для проверки, является ли символ гласной буквой
+
     private static boolean isVowel(char c) {
         return "AEIOUaeiou".indexOf(c) != -1;
     }
 
-    // Метод для записи строки в файл
-    private static void writeToFile(String fileName, String content) throws IOException {
+
+    private static void writeToFile(String fileName, List<String> content) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(content);
+            for (int i = 0; i < content.size(); i ++)
+                writer.write(content.get(i) + "\n");
         }
     }
 }
