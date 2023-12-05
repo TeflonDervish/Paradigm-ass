@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Scanner;
 
 public class FileSearchThread extends Thread {
     private static int totalThreads = 0;
@@ -40,7 +41,6 @@ public class FileSearchThread extends Thread {
         double percentage = ((double) executionTime / (double) getTotalExecutionTime()) * 100;
         System.out.println("Percentage of Total Execution Time: " + percentage + "%");
 
-        // Засыпаем после завершения поиска
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -57,7 +57,6 @@ public class FileSearchThread extends Thread {
             if (files != null) {
                 for (File file : files) {
                     if (file.isDirectory()) {
-                        // Создаем новый поток для поиска внутри поддиректории
                         FileSearchThread subThread = new FileSearchThread(file.getAbsolutePath());
                         subThread.start();
                     } else {
@@ -82,20 +81,14 @@ public class FileSearchThread extends Thread {
     }
 
     private long getExecutionTime() {
-        // Получаем время выполнения потока
         return System.currentTimeMillis() - startTime;
     }
 
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Usage: java FileSearchThread <directory>");
-            System.exit(1);
-        }
+        Scanner in = new Scanner(System.in);
+        System.out.println("Direction path");
+        String searchDirectory = in.next();
 
-        // Задайте путь к директории, в которой хотите начать поиск файлов
-        String searchDirectory = args[0];
-
-        // Создайте и запустите поток поиска файлов
         FileSearchThread searchThread = new FileSearchThread(searchDirectory);
         searchThread.start();
     }
